@@ -1,0 +1,103 @@
+.reasonTypeWriter {
+    width: 100%;
+    height: 20px;
+}
+.main {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.5%;
+  background-color: rgba(51, 51, 51, 1);
+  color: whitesmoke;
+  margin: 4px;
+}
+.status-severity {
+  padding: 0.5%;
+  background-color: rgba(51, 51, 51, 1);
+  color: whitesmoke;
+  margin: 4px;
+}
+.small-text {
+    vertical-align: super;
+    font-size: 0.6em;
+}
+
+.good-service {
+  color: green;
+  font-size: 0.8em;
+}
+.minor-delays {
+  color: lightblue;
+}
+.part-closure {
+  color: orange;
+}
+.severe-delays {
+  color: crimson;
+}
+.service-closed {
+  color: red;
+}
+.part-suspended {
+    color: pink;
+}
+
+.night-text {
+    color: black;
+    font-size: 0.8em;
+}
+.bakerloo-brown {
+  font-weight: 700;
+  color: #894e24;
+}
+.central-red {
+  font-weight: 700;
+  color: #dc241f;
+}
+.circle-yellow {
+  font-weight: 700;
+  color: #ffce00;
+}
+.district-green {
+  font-weight: 700;
+  color: #007229;
+}
+.hammerSmithCity-purple {
+  font-weight: 700;
+  color: #d799af;
+}
+.jubilee-silver {
+  font-weight: 700;
+  color: #6a7278;
+}
+.metropolitan-purple {
+  font-weight: 700;
+  color: #751056;
+}
+.northern-black {
+  font-weight: 700;
+  color: black;
+}
+.piccadilly-blue {
+  font-weight: 700;
+  color: #0019a8;
+}
+.victoria-blue {
+  font-weight: 700;
+  color: #00a0e2;
+}
+.waterlooCity-blue {
+  font-weight: 700;
+  color: #76d0bd;
+}
+.tflRail-blue {
+  font-weight: 700;
+  color: #0019a8;
+}
+.DLR-blue {
+  font-weight: 700;
+  color: #00afad;
+}
+.LondonOverground-orange {
+  font-weight: 700;
+  color: #e86a10;
+}

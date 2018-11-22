@@ -1,3 +1,193 @@
-<p>
-  home works!
-</p>
+<section id="home">
+  <div class="flex-container">
+    <div *ngFor="let item of tubeData" class="main">
+      <h3
+        [ngClass]="{
+          'bakerloo-brown': item.name === 'Bakerloo',
+          'central-red': item.name === 'Central',
+          'circle-yellow': item.name === 'Circle',
+          'district-green': item.name === 'District',
+          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
+          'jubilee-silver': item.name === 'Jubilee',
+          'metropolitan-purple': item.name === 'Metropolitan',
+          'northern-black': item.name === 'Northern',
+          'piccadilly-blue': item.name === 'Piccadilly',
+          'victoria-blue': item.name === 'Victoria',
+          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'tflRail-blue': item.name === 'TfL Rail',
+          'DLR-blue': item.name === 'DLR',
+          'LondonOverground-orange': item.name === 'London Overground'
+        }"
+      >
+        {{ item.name }} <small class="small-text">line</small>
+      </h3>
+
+      <p>{{ item.serviceTypes[0].name }}</p>
+      
+      
+      <p *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Good Service'"
+        [ngClass]="{
+          'good-service':
+            item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+          'minor-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+          'severe-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+          'part-closure':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+          'service-closed':
+            item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+          'part-suspended':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+        }"
+      >
+     
+        {{ item.lineStatuses[0].statusSeverityDescription }}   
+
+        
+      </p>
+      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Minor Delays'"
+      [ngClass]="{
+        'good-service':
+          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+        'minor-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+        'severe-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+        'part-closure':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+        'service-closed':
+          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+        'part-suspended':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      }"
+      >
+        {{typeWriterDisplayMessage | async}}
+      </p>
+    </div>
+  </div>
+
+  <!-- Reasons -->
+
+  <div *ngFor="let item of tubeData">
+    <div
+      class="status-severity"
+      *ngIf="
+        item.lineStatuses[0].statusSeverityDescription === 'Service Closed'
+      "
+    >
+      <div class="service-closed">{{ item.lineStatuses[0].reason }}</div>
+    </div>
+
+    <div
+      class="status-severity"
+      *ngIf="
+        item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      "
+    >
+      <h3>Reasons:</h3>
+      <span
+        [ngClass]="{
+          'bakerloo-brown': item.name === 'Bakerloo',
+          'central-red': item.name === 'Central',
+          'circle-yellow': item.name === 'Circle',
+          'district-green': item.name === 'District',
+          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
+          'jubilee-silver': item.name === 'Jubilee',
+          'metropolitan-purple': item.name === 'Metropolitan',
+          'northern-black': item.name === 'Northern',
+          'piccadilly-blue': item.name === 'Piccadilly',
+          'victoria-blue': item.name === 'Victoria',
+          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'tflRail-blue': item.name === 'TfL Rail',
+          'DLR-blue': item.name === 'DLR',
+          'LondonOverground-orange': item.name === 'London Overground'
+        }"
+        >{{ item.lineStatuses[0].reason | firstWord }}:</span
+      >
+      {{ item.lineStatuses[0].reason | secondWord }}
+    </div>
+
+    <div
+      class="status-severity"
+      *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Part Closure'"
+    >
+      <h3>Reasons:</h3>
+      <span
+        [ngClass]="{
+          'bakerloo-brown': item.name === 'Bakerloo',
+          'central-red': item.name === 'Central',
+          'circle-yellow': item.name === 'Circle',
+          'district-green': item.name === 'District',
+          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
+          'jubilee-silver': item.name === 'Jubilee',
+          'metropolitan-purple': item.name === 'Metropolitan',
+          'northern-black': item.name === 'Northern',
+          'piccadilly-blue': item.name === 'Piccadilly',
+          'victoria-blue': item.name === 'Victoria',
+          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'tflRail-blue': item.name === 'TfL Rail',
+          'DLR-blue': item.name === 'DLR',
+          'LondonOverground-orange': item.name === 'London Overground'
+        }"
+        >{{ item.lineStatuses[0].reason | firstWord }}:</span
+      >
+      {{ item.lineStatuses[0].reason | secondWord }}
+    </div>
+
+    <div
+      class="status-severity"
+      *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Minor Delays'"
+    >
+      <h3>Reasons:</h3>
+      <span
+        [ngClass]="{
+          'bakerloo-brown': item.name === 'Bakerloo',
+          'central-red': item.name === 'Central',
+          'circle-yellow': item.name === 'Circle',
+          'district-green': item.name === 'District',
+          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
+          'jubilee-silver': item.name === 'Jubilee',
+          'metropolitan-purple': item.name === 'Metropolitan',
+          'northern-black': item.name === 'Northern',
+          'piccadilly-blue': item.name === 'Piccadilly',
+          'victoria-blue': item.name === 'Victoria',
+          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'tflRail-blue': item.name === 'TfL Rail',
+          'DLR-blue': item.name === 'DLR',
+          'LondonOverground-orange': item.name === 'London Overground'
+        }"
+        >{{ item.lineStatuses[0].reason | firstWord }}:</span
+      >
+      {{ item.lineStatuses[0].reason | secondWord }}
+    </div>
+
+    <div
+      class="status-severity"
+      *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Severe Delays'"
+    >
+      <h3>Reasons:</h3>
+      <span
+        [ngClass]="{
+          'bakerloo-brown': item.name === 'Bakerloo',
+          'central-red': item.name === 'Central',
+          'circle-yellow': item.name === 'Circle',
+          'district-green': item.name === 'District',
+          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
+          'jubilee-silver': item.name === 'Jubilee',
+          'metropolitan-purple': item.name === 'Metropolitan',
+          'northern-black': item.name === 'Northern',
+          'piccadilly-blue': item.name === 'Piccadilly',
+          'victoria-blue': item.name === 'Victoria',
+          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'tflRail-blue': item.name === 'TfL Rail',
+          'DLR-blue': item.name === 'DLR',
+          'LondonOverground-orange': item.name === 'London Overground'
+        }"
+        >{{ item.lineStatuses[0].reason | firstWord }}:</span
+      >
+      {{ item.lineStatuses[0].reason | secondWord }}
+    </div>
+  </div>
+  
+</section>

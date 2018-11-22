@@ -19,10 +19,10 @@
           'LondonOverground-orange': item.name === 'London Overground'
         }"
       >
-        {{ item.name }} <small class="small-text">line</small>
+        {{ item.name }} <small class="small-text-super">line</small>
       </h3>
 
-      <p>{{ item.serviceTypes[0].name }}</p>
+      <p>{{ item.serviceTypes[0].name }} <small class="small-text-sub">service</small></p>
       
       
       <p *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Good Service'"
@@ -46,6 +46,26 @@
 
         
       </p>
+
+      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Severe Delays'"
+      [ngClass]="{
+        'good-service':
+          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+        'minor-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+        'severe-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+        'part-closure':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+        'service-closed':
+          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+        'part-suspended':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      }"
+      >
+        {{MessageSevere | async}}
+      </p>
+
       <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Minor Delays'"
       [ngClass]="{
         'good-service':
@@ -62,12 +82,70 @@
           item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
       }"
       >
-        {{typeWriterDisplayMessage | async}}
+        {{MessageMinor | async}}
       </p>
+
+      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Part Closure'"
+      [ngClass]="{
+        'good-service':
+          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+        'minor-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+        'severe-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+        'part-closure':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+        'service-closed':
+          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+        'part-suspended':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      }"
+      >
+        {{MessagePartClosure | async}}
+      </p>
+
+      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Service Closed'"
+      [ngClass]="{
+        'good-service':
+          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+        'minor-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+        'severe-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+        'part-closure':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+        'service-closed':
+          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+        'part-suspended':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      }"
+      >
+        {{MessageServiceClosed | async}}
+      </p>
+
+      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'"
+      [ngClass]="{
+        'good-service':
+          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+        'minor-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+        'severe-delays':
+          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+        'part-closure':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+        'service-closed':
+          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+        'part-suspended':
+          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      }"
+      >
+        {{MessagePartSuspended | async}}
+      </p>
+      
     </div>
   </div>
 
-  <!-- Reasons -->
+  <!-- Reasons Reasons Reasons Reasons Reasons Reasons Reasons  -->
 
   <div *ngFor="let item of tubeData">
     <div

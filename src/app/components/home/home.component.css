@@ -1,6 +1,6 @@
 .reasonTypeWriter {
-    width: 100%;
-    height: 20px;
+  width: 100%;
+  height: 20px;
 }
 .main {
   flex: 1;
@@ -16,9 +16,13 @@
   color: whitesmoke;
   margin: 4px;
 }
-.small-text {
-    vertical-align: super;
-    font-size: 0.6em;
+.small-text-super {
+  vertical-align: super;
+  font-size: 0.6em;
+}
+.small-text-sub {
+  vertical-align: sub;
+  font-size: 0.6em;
 }
 
 .good-service {
@@ -38,12 +42,12 @@
   color: red;
 }
 .part-suspended {
-    color: pink;
+  color: pink;
 }
 
 .night-text {
-    color: black;
-    font-size: 0.8em;
+  color: black;
+  font-size: 0.8em;
 }
 .bakerloo-brown {
   font-weight: 700;

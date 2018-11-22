@@ -16,6 +16,12 @@ export class HomeComponent implements OnInit {
   typeWriterDisplayMessage;
   typeWriterText = "TESTING TESTING";
 
+  MessageMinor;
+  MessageSevere;
+  MessagePartClosure;
+  MessageServiceClosed;
+  MessagePartSuspended;
+
   constructor(
     private httpGet$: HttpGetService,
     private typeWriter$: TypeWriterService
@@ -34,12 +40,53 @@ export class HomeComponent implements OnInit {
           let tempService = service.trim();
           if (tempService !== "Good Service") {
             this.typeWriterText = tempService;
+
             console.log(this.typeWriterText);
-            setInterval(() => {
-              this.typeWriterDisplayMessage = this.typeWriter$.typeWriter(
-                this.typeWriterText
-              );
-            }, 2000);
+
+            if (this.typeWriterText === "Severe Delays") {
+              let text = "Severe Delays";
+              setInterval(() => {
+                this.MessageSevere = this.typeWriter$.typeWriter(
+                  text
+                );
+              }, 2000);
+            }
+
+            if (this.typeWriterText === "Minor Delays") {
+              let text = "Minor Delays";
+              setInterval(() => {
+                this.MessageMinor = this.typeWriter$.typeWriter(
+                  text
+                );
+              }, 2000);
+            }
+
+            if (this.typeWriterText === "Part Closure") {
+              let text = "Part Closure";
+              setInterval(() => {
+                this.MessagePartClosure = this.typeWriter$.typeWriter(
+                  text
+                );
+              }, 2000);
+            }
+
+            if (this.typeWriterText === "Service Closed") {
+              let text = "Service Closed";
+              setInterval(() => {
+                this.MessageServiceClosed = this.typeWriter$.typeWriter(
+                  text
+                );
+              }, 2000);
+            }
+
+            if (this.typeWriterText === "Part Suspended") {
+              let text = "Part Suspended";
+              setInterval(() => {
+                this.MessagePartSuspended = this.typeWriter$.typeWriter(
+                  text
+                );
+              }, 2000);
+            }
           }
         }
       });

@@ -2,6 +2,7 @@
   <div class="flex-container">
     <div *ngFor="let item of tubeData" class="main">
       <h3
+        routerLink="/circle"
         [ngClass]="{
           'bakerloo-brown': item.name === 'Bakerloo',
           'central-red': item.name === 'Central',
@@ -14,7 +15,7 @@
           'piccadilly-blue': item.name === 'Piccadilly',
           'victoria-blue': item.name === 'Victoria',
           'waterlooCity-blue': item.name === 'Waterloo & City',
-          'tflRail-blue': item.name === 'TfL Rail',
+          'TFL-rail-blue': item.name === 'TfL Rail',
           'DLR-blue': item.name === 'DLR',
           'LondonOverground-orange': item.name === 'London Overground'
         }"
@@ -22,10 +23,15 @@
         {{ item.name }} <small class="small-text-super">line</small>
       </h3>
 
-      <p>{{ item.serviceTypes[0].name }} <small class="small-text-sub">service</small></p>
-      
-      
-      <p *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Good Service'"
+      <p>
+        {{ item.serviceTypes[0].name }}
+        <small class="small-text-sub">service</small>
+      </p>
+
+      <p
+        *ngIf="
+          item.lineStatuses[0].statusSeverityDescription === 'Good Service'
+        "
         [ngClass]="{
           'good-service':
             item.lineStatuses[0].statusSeverityDescription === 'Good Service',
@@ -41,111 +47,127 @@
             item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
         }"
       >
-     
-        {{ item.lineStatuses[0].statusSeverityDescription }}   
-
-        
+        {{ item.lineStatuses[0].statusSeverityDescription }}
       </p>
 
-      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Severe Delays'"
-      [ngClass]="{
-        'good-service':
-          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
-        'minor-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
-        'severe-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
-        'part-closure':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
-        'service-closed':
-          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
-        'part-suspended':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
-      }"
+      <p
+        class="reasonTypeWriter"
+        *ngIf="
+          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays'
+        "
+        [ngClass]="{
+          'good-service':
+            item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+          'minor-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+          'severe-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+          'part-closure':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+          'service-closed':
+            item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+          'part-suspended':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+        }"
       >
-        {{MessageSevere | async}}
+        {{ MessageSevere | async }}
       </p>
 
-      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Minor Delays'"
-      [ngClass]="{
-        'good-service':
-          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
-        'minor-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
-        'severe-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
-        'part-closure':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
-        'service-closed':
-          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
-        'part-suspended':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
-      }"
+      <p
+        class="reasonTypeWriter"
+        *ngIf="
+          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays'
+        "
+        [ngClass]="{
+          'good-service':
+            item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+          'minor-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+          'severe-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+          'part-closure':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+          'service-closed':
+            item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+          'part-suspended':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+        }"
       >
-        {{MessageMinor | async}}
+        {{ MessageMinor | async }}
       </p>
 
-      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Part Closure'"
-      [ngClass]="{
-        'good-service':
-          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
-        'minor-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
-        'severe-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
-        'part-closure':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
-        'service-closed':
-          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
-        'part-suspended':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
-      }"
+      <p
+        class="reasonTypeWriter"
+        *ngIf="
+          item.lineStatuses[0].statusSeverityDescription === 'Part Closure'
+        "
+        [ngClass]="{
+          'good-service':
+            item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+          'minor-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+          'severe-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+          'part-closure':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+          'service-closed':
+            item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+          'part-suspended':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+        }"
       >
-        {{MessagePartClosure | async}}
+        {{ MessagePartClosure | async }}
       </p>
 
-      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Service Closed'"
-      [ngClass]="{
-        'good-service':
-          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
-        'minor-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
-        'severe-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
-        'part-closure':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
-        'service-closed':
-          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
-        'part-suspended':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
-      }"
+      <p
+        class="reasonTypeWriter"
+        *ngIf="
+          item.lineStatuses[0].statusSeverityDescription === 'Service Closed'
+        "
+        [ngClass]="{
+          'good-service':
+            item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+          'minor-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+          'severe-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+          'part-closure':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+          'service-closed':
+            item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+          'part-suspended':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+        }"
       >
-        {{MessageServiceClosed | async}}
+        {{ MessageServiceClosed | async }}
       </p>
 
-      <p class="reasonTypeWriter" *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'"
-      [ngClass]="{
-        'good-service':
-          item.lineStatuses[0].statusSeverityDescription === 'Good Service',
-        'minor-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
-        'severe-delays':
-          item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
-        'part-closure':
-          item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
-        'service-closed':
-          item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
-        'part-suspended':
+      <p
+        class="reasonTypeWriter"
+        *ngIf="
           item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
-      }"
+        "
+        [ngClass]="{
+          'good-service':
+            item.lineStatuses[0].statusSeverityDescription === 'Good Service',
+          'minor-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Minor Delays',
+          'severe-delays':
+            item.lineStatuses[0].statusSeverityDescription === 'Severe Delays',
+          'part-closure':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Closure',
+          'service-closed':
+            item.lineStatuses[0].statusSeverityDescription === 'Service Closed',
+          'part-suspended':
+            item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+        }"
       >
-        {{MessagePartSuspended | async}}
+        {{ MessagePartSuspended | async }}
       </p>
-      
     </div>
   </div>
 
-  <!-- Reasons Reasons Reasons Reasons Reasons Reasons Reasons  -->
+  <!-- Reasons Reasons Reasons Reasons Reasons Reasons Reasons -->
 
   <div *ngFor="let item of tubeData">
     <div
@@ -154,16 +176,8 @@
         item.lineStatuses[0].statusSeverityDescription === 'Service Closed'
       "
     >
-      <div class="service-closed">{{ item.lineStatuses[0].reason }}</div>
-    </div>
-
-    <div
-      class="status-severity"
-      *ngIf="
-        item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
-      "
-    >
       <h3>Reasons:</h3>
+      <hr class="custom-hr" />
       <span
         [ngClass]="{
           'bakerloo-brown': item.name === 'Bakerloo',
@@ -177,7 +191,37 @@
           'piccadilly-blue': item.name === 'Piccadilly',
           'victoria-blue': item.name === 'Victoria',
           'waterlooCity-blue': item.name === 'Waterloo & City',
-          'tflRail-blue': item.name === 'TfL Rail',
+          'TFL-rail-blue': item.name === 'TfL Rail',
+          'DLR-blue': item.name === 'DLR',
+          'LondonOverground-orange': item.name === 'London Overground'
+        }"
+        >{{ item.lineStatuses[0].reason | firstWord }}:</span
+      >
+      {{ item.lineStatuses[0].reason | secondWord }}
+    </div>
+
+    <div
+      class="status-severity"
+      *ngIf="
+        item.lineStatuses[0].statusSeverityDescription === 'Part Suspended'
+      "
+    >
+      <h3>Reasons:</h3>
+      <hr class="custom-hr" />
+      <span
+        [ngClass]="{
+          'bakerloo-brown': item.name === 'Bakerloo',
+          'central-red': item.name === 'Central',
+          'circle-yellow': item.name === 'Circle',
+          'district-green': item.name === 'District',
+          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
+          'jubilee-silver': item.name === 'Jubilee',
+          'metropolitan-purple': item.name === 'Metropolitan',
+          'northern-black': item.name === 'Northern',
+          'piccadilly-blue': item.name === 'Piccadilly',
+          'victoria-blue': item.name === 'Victoria',
+          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'TFL-rail-blue': item.name === 'TfL Rail',
           'DLR-blue': item.name === 'DLR',
           'LondonOverground-orange': item.name === 'London Overground'
         }"
@@ -191,6 +235,7 @@
       *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Part Closure'"
     >
       <h3>Reasons:</h3>
+      <hr class="custom-hr" />
       <span
         [ngClass]="{
           'bakerloo-brown': item.name === 'Bakerloo',
@@ -204,7 +249,7 @@
           'piccadilly-blue': item.name === 'Piccadilly',
           'victoria-blue': item.name === 'Victoria',
           'waterlooCity-blue': item.name === 'Waterloo & City',
-          'tflRail-blue': item.name === 'TfL Rail',
+          'TFL-rail-blue': item.name === 'TfL Rail',
           'DLR-blue': item.name === 'DLR',
           'LondonOverground-orange': item.name === 'London Overground'
         }"
@@ -218,6 +263,7 @@
       *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Minor Delays'"
     >
       <h3>Reasons:</h3>
+      <hr class="custom-hr" />
       <span
         [ngClass]="{
           'bakerloo-brown': item.name === 'Bakerloo',
@@ -231,7 +277,7 @@
           'piccadilly-blue': item.name === 'Piccadilly',
           'victoria-blue': item.name === 'Victoria',
           'waterlooCity-blue': item.name === 'Waterloo & City',
-          'tflRail-blue': item.name === 'TfL Rail',
+          'TFL-rail-blue': item.name === 'TfL Rail',
           'DLR-blue': item.name === 'DLR',
           'LondonOverground-orange': item.name === 'London Overground'
         }"
@@ -245,6 +291,7 @@
       *ngIf="item.lineStatuses[0].statusSeverityDescription === 'Severe Delays'"
     >
       <h3>Reasons:</h3>
+      <hr class="custom-hr" />
       <span
         [ngClass]="{
           'bakerloo-brown': item.name === 'Bakerloo',
@@ -258,7 +305,7 @@
           'piccadilly-blue': item.name === 'Piccadilly',
           'victoria-blue': item.name === 'Victoria',
           'waterlooCity-blue': item.name === 'Waterloo & City',
-          'tflRail-blue': item.name === 'TfL Rail',
+          'TFL-rail-blue': item.name === 'TfL Rail',
           'DLR-blue': item.name === 'DLR',
           'LondonOverground-orange': item.name === 'London Overground'
         }"
@@ -267,5 +314,4 @@
       {{ item.lineStatuses[0].reason | secondWord }}
     </div>
   </div>
-  
 </section>

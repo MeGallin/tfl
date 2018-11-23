@@ -1,3 +1,6 @@
+#home {
+  background: black;
+}
 .reasonTypeWriter {
   width: 100%;
   height: 20px;
@@ -5,11 +8,12 @@
 .main {
   flex: 1;
   min-width: 120px;
-  padding: 0.5%;
+  padding: 0.16%;
   background-color: rgba(51, 51, 51, 1);
   color: whitesmoke;
-  margin: 4px;
-}
+  margin: 4px 2px;
+  line-height: 1.2em;
+ }
 .status-severity {
   padding: 0.5%;
   background-color: rgba(51, 51, 51, 1);
@@ -51,57 +55,72 @@
 }
 .bakerloo-brown {
   font-weight: 700;
-  color: #894e24;
+  background-color: var(--bakerloo-brown);
+  padding: 4px 0;
 }
 .central-red {
   font-weight: 700;
-  color: #dc241f;
+  background-color: var(--central-red);
+  padding: 4px 0;
 }
 .circle-yellow {
   font-weight: 700;
-  color: #ffce00;
+  background-color: var(--circle-yellow);
+  padding: 4px 0;
+  cursor: pointer;
 }
 .district-green {
   font-weight: 700;
-  color: #007229;
+  background-color: var(--district-green);
+  padding: 4px 0;
 }
 .hammerSmithCity-purple {
   font-weight: 700;
-  color: #d799af;
+  background-color: var(--hammersmith-city-purple);
+  padding: 4px 0;
 }
 .jubilee-silver {
   font-weight: 700;
-  color: #6a7278;
+  background-color: var(--jubilee-silver);
+  padding: 4px 0;
 }
 .metropolitan-purple {
   font-weight: 700;
-  color: #751056;
+  background-color: var(--metropolitan-purple);
+  padding: 4px 0;
 }
 .northern-black {
   font-weight: 700;
-  color: black;
+  background-color: var(--northern-black);
+  padding: 4px 0;
 }
 .piccadilly-blue {
   font-weight: 700;
-  color: #0019a8;
+  background-color: var(--piccadilly-blue);
+  padding: 4px 0;
 }
 .victoria-blue {
   font-weight: 700;
-  color: #00a0e2;
+  background-color: var(--victoria-blue);
+  padding: 4px 0;
 }
 .waterlooCity-blue {
   font-weight: 700;
-  color: #76d0bd;
+  background-color: var(--waterloo-city-blue);
+  padding: 4px 0;
 }
-.tflRail-blue {
+.TFL-rail-blue {
   font-weight: 700;
-  color: #0019a8;
+  background-color: var(--TfL-rail-blue);
+  padding: 4px 0;
 }
 .DLR-blue {
   font-weight: 700;
-  color: #00afad;
+  background-color: var(--DLR-blue);
+  padding: 4px 0;
 }
 .LondonOverground-orange {
   font-weight: 700;
-  color: #e86a10;
+  background-color: var(--london-overground-orange);
+  padding: 4px 0;
 }

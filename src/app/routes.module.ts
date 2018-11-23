@@ -15,7 +15,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "Circle",
+    path: "circle",
     component: CircleComponent
   },
   {

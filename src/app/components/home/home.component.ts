@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   MessagePartClosure;
   MessageServiceClosed;
   MessagePartSuspended;
+  defaultText: string;
 
   constructor(
     private httpGet$: HttpGetService,
@@ -33,15 +34,56 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {
         this.tubeData = res;
 
+        console.log(this.tubeData);
+
         for (let i = 0; i < this.tubeData.length; i++) {
           let service = this.tubeData[i].lineStatuses[0]
             .statusSeverityDescription;
-          // console.log(service.trim());
+
           let tempService = service.trim();
           if (tempService !== "Good Service") {
             this.typeWriterText = tempService;
 
             console.log(this.typeWriterText);
+
+            // switch (this.typeWriterText) {
+            //   case "Severe Delays":
+            //     let textSD = "Severe Delays";
+            //     setInterval(() => {
+            //       this.MessageSevere = this.typeWriter$.typeWriter(textSD);
+            //     }, 3000);
+            //     break;
+
+            //   case "Minor Delays":
+            //     let textMD = "Minor Delays";
+            //     setInterval(() => {
+            //       this.MessageSevere = this.typeWriter$.typeWriter(textMD);
+            //     }, 2000);
+            //     break;
+
+            //   case "Part Closure":
+            //     let textPC = "Part Closure";
+            //     setInterval(() => {
+            //       this.MessageSevere = this.typeWriter$.typeWriter(textPC);
+            //     }, 2000);
+            //     break;
+
+            //   case "Service Closed":
+            //     let textSV = "Service Closed";
+            //     setInterval(() => {
+            //       this.MessageSevere = this.typeWriter$.typeWriter(textSV);
+            //     }, 2000);
+            //     break;
+
+            //   case "Part Suspended":
+            //     let textPS = "Part Suspended";
+            //     setInterval(() => {
+            //       this.MessageSevere = this.typeWriter$.typeWriter(textPS);
+            //     }, 2000);
+            //     break;
+            //   default:
+            //     this.defaultText = "Looking forward to the Weekend";
+            // } 
 
             if (this.typeWriterText === "Severe Delays") {
               let text = "Severe Delays";
@@ -49,7 +91,7 @@ export class HomeComponent implements OnInit {
                 this.MessageSevere = this.typeWriter$.typeWriter(
                   text
                 );
-              }, 2000);
+              }, 3000);
             }
 
             if (this.typeWriterText === "Minor Delays") {
@@ -58,7 +100,7 @@ export class HomeComponent implements OnInit {
                 this.MessageMinor = this.typeWriter$.typeWriter(
                   text
                 );
-              }, 2000);
+              }, 3000);
             }
 
             if (this.typeWriterText === "Part Closure") {
@@ -67,7 +109,7 @@ export class HomeComponent implements OnInit {
                 this.MessagePartClosure = this.typeWriter$.typeWriter(
                   text
                 );
-              }, 2000);
+              }, 3000);
             }
 
             if (this.typeWriterText === "Service Closed") {
@@ -76,7 +118,7 @@ export class HomeComponent implements OnInit {
                 this.MessageServiceClosed = this.typeWriter$.typeWriter(
                   text
                 );
-              }, 2000);
+              }, 3000);
             }
 
             if (this.typeWriterText === "Part Suspended") {
@@ -85,7 +127,7 @@ export class HomeComponent implements OnInit {
                 this.MessagePartSuspended = this.typeWriter$.typeWriter(
                   text
                 );
-              }, 2000);
+              }, 3000);
             }
           }
         }

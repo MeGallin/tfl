@@ -109,7 +109,7 @@ section {
   display: block;
 }
 body {
-  line-height: 1.5;
+  line-height: 1;
 }
 ol,
 ul {
@@ -135,11 +135,28 @@ table {
 :root {
   --border-temp-colour: red;
   --border-temp-thickness: 1px;
+  --bakerloo-brown: #894e24;
+  --central-red:#dc241f;
+  --circle-yellow:#ffce00;
+  --district-green:#007229;
+  --hammersmith-city-purple:#d799af;
+  --jubilee-silver:#6a7278;
+  --metropolitan-purple:#751056;
+  --northern-black:black;
+  --piccadilly-blue:#0019a8;
+  --victoria-blue:#00a0e2;
+  --waterloo-city-blue:#76d0bd;
+  --TfL-rail-blue:#0019a8;
+  --DLR-blue:#00afad;
+  --london-overground-orange:#e86a10;
 }
-
+/* ---- Variables ---- */
 html {
   font-family: "Montserrat", sans-serif;
- }
+}
+body {
+  background: whitesmoke;
+}
 .container {
   padding: 0 16px;
 }
@@ -162,13 +179,11 @@ hr.custom-hr {
 }
 .flex-container {
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   align-items: stretch;
 }
 
 /* Animations */
-
-
 
 /* Ga Helper classes */
 .border-temp {

@@ -1,8 +1,8 @@
 <section id="home">
+ 
   <div class="flex-container">
     <div *ngFor="let item of tubeData" class="main">
-      <h3
-        routerLink="/circle"
+      <h3        
         [ngClass]="{
           'bakerloo-brown': item.name === 'Bakerloo',
           'central-red': item.name === 'Central',
@@ -20,7 +20,21 @@
           'LondonOverground-orange': item.name === 'London Overground'
         }"
       >
-        {{ item.name }} <small class="small-text-super">line</small>
+      <span *ngIf="item.name === 'Circle'" routerLink="/circle">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Bakerloo'" routerLink="/bakerloo">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Central'" routerLink="/central">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'District'" routerLink="/district">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Piccadilly'" routerLink="/piccadilly">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Jubilee'" routerLink="/jubilee">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Victoria'" routerLink="/victoria">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Northern'" routerLink="/northern">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'DLR'" routerLink="/dlr">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'London Overground'" routerLink="/london-overground">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Waterloo & City'" routerLink="/waterloo-city">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Metropolitan'" routerLink="/metropolitan">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'Hammersmith & City'" routerLink="/hammersmith-city">{{ item.name }} <small class="small-text-super">line</small></span>
+      <span *ngIf="item.name === 'TfL Rail'" routerLink="/tfl-rail">{{ item.name }} <small class="small-text-super">line</small></span>
+        
       </h3>
 
       <p>
@@ -198,6 +212,7 @@
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
       {{ item.lineStatuses[0].reason | secondWord }}
+      <hr class="custom-hr" />
     </div>
 
     <div
@@ -228,6 +243,7 @@
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
       {{ item.lineStatuses[0].reason | secondWord }}
+      <hr class="custom-hr" />
     </div>
 
     <div
@@ -256,6 +272,7 @@
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
       {{ item.lineStatuses[0].reason | secondWord }}
+      <hr class="custom-hr" />
     </div>
 
     <div
@@ -284,6 +301,7 @@
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
       {{ item.lineStatuses[0].reason | secondWord }}
+      <hr class="custom-hr" />
     </div>
 
     <div
@@ -312,6 +330,7 @@
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
       {{ item.lineStatuses[0].reason | secondWord }}
+      <hr class="custom-hr" />
     </div>
   </div>
 </section>

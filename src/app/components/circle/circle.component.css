@@ -1,0 +1,53 @@
+#circle-line h3 {
+  color: var(--circle-yellow);
+  padding: 2%;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.flex-container > div {
+  flex: 1;
+  min-width: 120px;
+  background-color: rgba(51, 51, 51, 1);
+  padding: 0 8px;
+  border-top: solid 6px var(--circle-yellow);
+  border-bottom: solid 6px var(--circle-yellow);
+}
+
+.mat-form-field {
+  font-family: inherit;
+}
+
+table {
+  width: 100%;
+  font-family: inherit;
+}
+table td {
+  /* position: relative;
+  top: 50%;
+  transform: translateY(-50%); */
+}
+tr.mat-footer-row,
+tr.mat-row {
+  padding: 8px 0;
+  height: auto;
+  font-size: 0.85em;
+}
+::ng-deep.mat-form-field-infix {
+  color: var(--circle-yellow);
+}
+tr.mat-header-row {
+    height: 6px;
+  }
+
+.one-min-away {
+  color: red;
+}
+.two-min-away {
+  color: orangered;
+}
+.h-s-text {
+  color: var(--hammersmith-city-purple);
+}

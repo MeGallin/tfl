@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ClockService } from "src/app/services/clock.service";
 
 @Component({
   selector: "app-footer",
@@ -8,9 +7,9 @@ import { ClockService } from "src/app/services/clock.service";
 })
 export class FooterComponent implements OnInit {
   displayDateTime;
-  constructor(private clockService$: ClockService) {}
+  constructor() {}
 
   ngOnInit() {
-  this.displayDateTime =  this.clockService$.getTime();
+  
   }
 }

@@ -8,7 +8,10 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
-  MatTableModule
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 @NgModule({
@@ -21,7 +24,10 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -32,7 +38,10 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

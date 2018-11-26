@@ -1,5 +1,6 @@
 <mat-toolbar color="accent">
-  <div class="image-wrapper">
+  <div class="image-wrapper" [routerLink]="['/home']" >
     <img src="../../../assets/images/mind_the_gap_logo.png" alt="TfL logo" />
   </div>
+  <p>{{ displayDateTime | async | date: "medium" }}</p>
 </mat-toolbar>

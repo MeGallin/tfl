@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { TypeWriterService } from "src/app/services/type-writer.service";
 import { timer } from "rxjs";
@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
       .pipe(switchMap(() => this.httpGet$.getTFLLineService()))
       .subscribe(res => {
         this.tubeData = res;
-
         console.log(this.tubeData);
 
         for (let i = 0; i < this.tubeData.length; i++) {
@@ -44,7 +43,7 @@ export class HomeComponent implements OnInit {
           if (tempService !== "Good Service") {
             this.typeWriterText = tempService;
 
-            console.log(this.typeWriterText);
+            // console.log(this.typeWriterText);
 
             // switch (this.typeWriterText) {
             //   case "Severe Delays":
@@ -83,50 +82,40 @@ export class HomeComponent implements OnInit {
             //     break;
             //   default:
             //     this.defaultText = "Looking forward to the Weekend";
-            // } 
+            // }
 
             if (this.typeWriterText === "Severe Delays") {
               let text = "Severe Delays";
               setInterval(() => {
-                this.MessageSevere = this.typeWriter$.typeWriter(
-                  text
-                );
+                this.MessageSevere = this.typeWriter$.typeWriter(text);
               }, 3000);
             }
 
             if (this.typeWriterText === "Minor Delays") {
               let text = "Minor Delays";
               setInterval(() => {
-                this.MessageMinor = this.typeWriter$.typeWriter(
-                  text
-                );
+                this.MessageMinor = this.typeWriter$.typeWriter(text);
               }, 3000);
             }
 
             if (this.typeWriterText === "Part Closure") {
               let text = "Part Closure";
               setInterval(() => {
-                this.MessagePartClosure = this.typeWriter$.typeWriter(
-                  text
-                );
+                this.MessagePartClosure = this.typeWriter$.typeWriter(text);
               }, 3000);
             }
 
             if (this.typeWriterText === "Service Closed") {
               let text = "Service Closed";
               setInterval(() => {
-                this.MessageServiceClosed = this.typeWriter$.typeWriter(
-                  text
-                );
+                this.MessageServiceClosed = this.typeWriter$.typeWriter(text);
               }, 3000);
             }
 
             if (this.typeWriterText === "Part Suspended") {
               let text = "Part Suspended";
               setInterval(() => {
-                this.MessagePartSuspended = this.typeWriter$.typeWriter(
-                  text
-                );
+                this.MessagePartSuspended = this.typeWriter$.typeWriter(text);
               }, 3000);
             }
           }

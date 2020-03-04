@@ -1,5 +1,12 @@
 footer {
-    background-color: #b0bec5;
-    font-size: 0.75em;
-    padding: 8px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #b0bec5;
+  font-size: 0.75em;
+  padding: 8px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

@@ -4,13 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'firstWord'
 })
 export class FirstWordPipe implements PipeTransform {
-
   transform(value: any, args?: any): any {
-    if(!value) {
+    console.log('FFFFFF', value);
+    if (!value) {
       return '';
-    } else{
+    } else {
       return value.split(':')[0];
     }
   }
-
 }

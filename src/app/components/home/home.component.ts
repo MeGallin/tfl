@@ -7,7 +7,7 @@ import { switchMap } from "rxjs/operators";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
   tubeData: any = [];
@@ -31,13 +31,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpGet$.getTFLLineService()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.tubeData = res;
-        console.log(this.tubeData);
 
         for (let i = 0; i < this.tubeData.length; i++) {
-          let service = this.tubeData[i].lineStatuses[0]
-            .statusSeverityDescription;
+          let service =
+            this.tubeData[i].lineStatuses[0].statusSeverityDescription;
 
           let tempService = service.trim();
           if (tempService !== "Good Service") {

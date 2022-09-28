@@ -6,6 +6,7 @@
 .home-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .reasonTypeWriter {
@@ -20,6 +21,9 @@
   margin: 4px 2px;
   line-height: 1.2em;
   border: 1px solid rgba(100, 100, 100, 1);
+}
+.main h3 {
+  font-size: 0.9em;
 }
 .status-severity {
   padding: 0.5%;
@@ -69,84 +73,90 @@
 .bakerloo-brown {
   font-weight: 700;
   background-color: var(--bakerloo-brown);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .central-red {
   font-weight: 700;
   background-color: var(--central-red);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .circle-yellow {
   font-weight: 700;
   background-color: var(--circle-yellow);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .district-green {
   font-weight: 700;
   background-color: var(--district-green);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .hammerSmithCity-purple {
   font-weight: 700;
   background-color: var(--hammersmith-city-purple);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .jubilee-silver {
   font-weight: 700;
   background-color: var(--jubilee-silver);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .metropolitan-purple {
   font-weight: 700;
   background-color: var(--metropolitan-purple);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .northern-black {
   font-weight: 700;
   background-color: var(--northern-black);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .piccadilly-blue {
   font-weight: 700;
   background-color: var(--piccadilly-blue);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .victoria-blue {
   font-weight: 700;
   background-color: var(--victoria-blue);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .waterlooCity-blue {
   font-weight: 700;
   background-color: var(--waterloo-city-blue);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .TFL-rail-blue {
   font-weight: 700;
   background-color: var(--TfL-rail-blue);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .DLR-blue {
   font-weight: 700;
   background-color: var(--DLR-blue);
-  padding: 4px 2px;
+  padding: 0 2px;
   cursor: pointer;
 }
 .LondonOverground-orange {
   font-weight: 700;
   background-color: var(--london-overground-orange);
-  padding: 4px 2px;
+  padding: 0 2px;
+  cursor: pointer;
+}
+.elizabeth-purple {
+  font-weight: 700;
+  background-color: var(--elizabeth-purple);
+  padding: 0 2px;
   cursor: pointer;
 }

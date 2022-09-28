@@ -10,7 +10,7 @@ export class HttpGetService {
 
   getTFLLineService() {
     const tflLineStatus =
-      "https://api.tfl.gov.uk/line/mode/tube,overground,dlr/status";
+      "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,elizabeth-line/status";
     return this.httpGet$.get(tflLineStatus).pipe(retry(5));
   }
 

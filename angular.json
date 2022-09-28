@@ -114,5 +114,8 @@
       }
     }
   },
-  "defaultProject": "tfl"
+  "defaultProject": "tfl",
+  "cli": {
+    "analytics": false
+  }
 }

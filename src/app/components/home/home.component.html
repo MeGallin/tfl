@@ -3,64 +3,66 @@
     <div *ngFor="let item of tubeData" class="main">
       <h3
         [ngClass]="{
-          'bakerloo-brown': item.name === 'Bakerloo',
-          'central-red': item.name === 'Central',
-          'circle-yellow': item.name === 'Circle',
-          'district-green': item.name === 'District',
-          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
-          'jubilee-silver': item.name === 'Jubilee',
-          'metropolitan-purple': item.name === 'Metropolitan',
-          'northern-black': item.name === 'Northern',
-          'piccadilly-blue': item.name === 'Piccadilly',
-          'victoria-blue': item.name === 'Victoria',
-          'waterlooCity-blue': item.name === 'Waterloo & City',
-          'TFL-rail-blue': item.name === 'TfL Rail',
-          'DLR-blue': item.name === 'DLR',
-          'LondonOverground-orange': item.name === 'London Overground'
+          'bakerloo-brown': item.id === 'bakerloo',
+          'central-red': item.id === 'central',
+          'circle-yellow': item.id === 'circle',
+          'district-green': item.id === 'district',
+          'hammerSmithCity-purple': item.id === 'hammersmith-city',
+          'jubilee-silver': item.id === 'jubilee',
+          'metropolitan-purple': item.id === 'metropolitan',
+          'northern-black': item.id === 'northern',
+          'piccadilly-blue': item.id === 'piccadilly',
+          'victoria-blue': item.id === 'victoria',
+          'waterlooCity-blue': item.id === 'waterloo-city',
+          'TFL-rail-blue': item.id === 'TfL Rail',
+          'DLR-blue': item.id === 'dlr',
+          'LondonOverground-orange': item.id === 'london-overground',
+          'elizabeth-purple': item.id === 'elizabeth'
         }"
       >
-        <span *ngIf="item.name === 'Circle'" routerLink="/circle"
+        <span *ngIf="item.id === 'circle'" routerLink="/circle"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Bakerloo'" routerLink="/bakerloo"
+        <span *ngIf="item.id === 'bakerloo'" routerLink="/bakerloo"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Central'" routerLink="/central"
+        <span *ngIf="item.id === 'central'" routerLink="/central"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'District'" routerLink="/district"
+        <span *ngIf="item.id === 'district'" routerLink="/district"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Piccadilly'" routerLink="/piccadilly"
+        <span *ngIf="item.id === 'elizabeth'" routerLink="/elizabeth"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Jubilee'" routerLink="/jubilee"
+        <span *ngIf="item.id === 'piccadilly'" routerLink="/piccadilly"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Victoria'" routerLink="/victoria"
+        <span *ngIf="item.id === 'jubilee'" routerLink="/jubilee"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Northern'" routerLink="/northern"
+        <span *ngIf="item.id === 'victoria'" routerLink="/victoria"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'DLR'" routerLink="/dlr"
+        <span *ngIf="item.id === 'northern'" routerLink="/northern"
+          >{{ item.name }} <small class="small-text-super">line</small></span
+        >
+        <span *ngIf="item.id === 'dlr'" routerLink="/dlr"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
         <span
-          *ngIf="item.name === 'London Overground'"
+          *ngIf="item.id === 'london-overground'"
           routerLink="/london-overground"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span
-          *ngIf="item.name === 'Waterloo & City'"
-          routerLink="/waterloo-city"
+        <span *ngIf="item.id === 'waterloo-city'" routerLink="/waterloo-city"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
-        <span *ngIf="item.name === 'Metropolitan'" routerLink="/metropolitan"
+        <span *ngIf="item.id === 'metropolitan'" routerLink="/metropolitan"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
         <span
-          *ngIf="item.name === 'Hammersmith & City'"
+          *ngIf="item.id === 'hammersmith-city'"
           routerLink="/hammersmith-city"
           >{{ item.name }} <small class="small-text-super">line</small></span
         >
@@ -226,20 +228,21 @@
       <hr class="custom-hr" />
       <span
         [ngClass]="{
-          'bakerloo-brown': item.name === 'Bakerloo',
-          'central-red': item.name === 'Central',
-          'circle-yellow': item.name === 'Circle',
-          'district-green': item.name === 'District',
-          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
-          'jubilee-silver': item.name === 'Jubilee',
-          'metropolitan-purple': item.name === 'Metropolitan',
-          'northern-black': item.name === 'Northern',
-          'piccadilly-blue': item.name === 'Piccadilly',
-          'victoria-blue': item.name === 'Victoria',
-          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'bakerloo-brown': item.id === 'bakerloo',
+          'central-red': item.id === 'central',
+          'circle-yellow': item.id === 'circle',
+          'district-green': item.id === 'district',
+          'hammerSmithCity-purple': item.id === 'hammersmith-city',
+          'jubilee-silver': item.id === 'jubilee',
+          'metropolitan-purple': item.id === 'metropolitan',
+          'northern-black': item.id === 'northern',
+          'piccadilly-blue': item.id === 'piccadilly',
+          'victoria-blue': item.id === 'victoria',
+          'waterlooCity-blue': item.id === 'waterloo-city',
           'TFL-rail-blue': item.name === 'TfL Rail',
-          'DLR-blue': item.name === 'DLR',
-          'LondonOverground-orange': item.name === 'London Overground'
+          'DLR-blue': item.id === 'dlr',
+          'LondonOverground-orange': item.id === 'london-overground',
+          'elizabeth-purple': item.id === 'elizabeth'
         }"
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
@@ -257,19 +260,20 @@
       <hr class="custom-hr" />
       <span
         [ngClass]="{
-          'bakerloo-brown': item.name === 'Bakerloo',
-          'central-red': item.name === 'Central',
-          'circle-yellow': item.name === 'Circle',
-          'district-green': item.name === 'District',
-          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
-          'jubilee-silver': item.name === 'Jubilee',
-          'metropolitan-purple': item.name === 'Metropolitan',
-          'northern-black': item.name === 'Northern',
-          'piccadilly-blue': item.name === 'Piccadilly',
-          'victoria-blue': item.name === 'Victoria',
-          'waterlooCity-blue': item.name === 'Waterloo & City',
-          'DLR-blue': item.name === 'DLR',
-          'LondonOverground-orange': item.name === 'London Overground'
+          'bakerloo-brown': item.id === 'bakerloo',
+          'central-red': item.id === 'central',
+          'circle-yellow': item.id === 'circle',
+          'district-green': item.id === 'district',
+          'hammerSmithCity-purple': item.id === 'hammersmith-city',
+          'jubilee-silver': item.id === 'jubilee',
+          'metropolitan-purple': item.id === 'metropolitan',
+          'northern-black': item.id === 'northern',
+          'piccadilly-blue': item.id === 'piccadilly',
+          'victoria-blue': item.id === 'victoria',
+          'waterlooCity-blue': item.id === 'waterloo-city',
+          'DLR-blue': item.id === 'dlr',
+          'LondonOverground-orange': item.id === 'london-overground',
+          'elizabeth-purple': item.id === 'elizabeth'
         }"
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
@@ -285,20 +289,21 @@
       <hr class="custom-hr" />
       <span
         [ngClass]="{
-          'bakerloo-brown': item.name === 'Bakerloo',
-          'central-red': item.name === 'Central',
-          'circle-yellow': item.name === 'Circle',
-          'district-green': item.name === 'District',
-          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
-          'jubilee-silver': item.name === 'Jubilee',
-          'metropolitan-purple': item.name === 'Metropolitan',
-          'northern-black': item.name === 'Northern',
-          'piccadilly-blue': item.name === 'Piccadilly',
-          'victoria-blue': item.name === 'Victoria',
-          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'bakerloo-brown': item.id === 'bakerloo',
+          'central-red': item.id === 'central',
+          'circle-yellow': item.id === 'circle',
+          'district-green': item.id === 'district',
+          'hammerSmithCity-purple': item.id === 'hammersmith-city',
+          'jubilee-silver': item.id === 'jubilee',
+          'metropolitan-purple': item.id === 'metropolitan',
+          'northern-black': item.id === 'northern',
+          'piccadilly-blue': item.id === 'piccadilly',
+          'victoria-blue': item.id === 'victoria',
+          'waterlooCity-blue': item.id === 'waterloo-city',
           'TFL-rail-blue': item.name === 'TfL Rail',
-          'DLR-blue': item.name === 'DLR',
-          'LondonOverground-orange': item.name === 'London Overground'
+          'DLR-blue': item.id === 'dlr',
+          'LondonOverground-orange': item.id === 'london-overground',
+          'elizabeth-purple': item.id === 'elizabeth'
         }"
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
@@ -314,20 +319,21 @@
       <hr class="custom-hr" />
       <span
         [ngClass]="{
-          'bakerloo-brown': item.name === 'Bakerloo',
-          'central-red': item.name === 'Central',
-          'circle-yellow': item.name === 'Circle',
-          'district-green': item.name === 'District',
-          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
-          'jubilee-silver': item.name === 'Jubilee',
-          'metropolitan-purple': item.name === 'Metropolitan',
-          'northern-black': item.name === 'Northern',
-          'piccadilly-blue': item.name === 'Piccadilly',
-          'victoria-blue': item.name === 'Victoria',
-          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'bakerloo-brown': item.id === 'bakerloo',
+          'central-red': item.id === 'central',
+          'circle-yellow': item.id === 'circle',
+          'district-green': item.id === 'district',
+          'hammerSmithCity-purple': item.id === 'hammersmith-city',
+          'jubilee-silver': item.id === 'jubilee',
+          'metropolitan-purple': item.id === 'metropolitan',
+          'northern-black': item.id === 'northern',
+          'piccadilly-blue': item.id === 'piccadilly',
+          'victoria-blue': item.id === 'victoria',
+          'waterlooCity-blue': item.id === 'waterloo-city',
           'TFL-rail-blue': item.name === 'TfL Rail',
-          'DLR-blue': item.name === 'DLR',
-          'LondonOverground-orange': item.name === 'London Overground'
+          'DLR-blue': item.id === 'dlr',
+          'LondonOverground-orange': item.id === 'london-overground',
+          'elizabeth-purple': item.id === 'elizabeth'
         }"
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >
@@ -343,20 +349,21 @@
       <hr class="custom-hr" />
       <span
         [ngClass]="{
-          'bakerloo-brown': item.name === 'Bakerloo',
-          'central-red': item.name === 'Central',
-          'circle-yellow': item.name === 'Circle',
-          'district-green': item.name === 'District',
-          'hammerSmithCity-purple': item.name === 'Hammersmith & City',
-          'jubilee-silver': item.name === 'Jubilee',
-          'metropolitan-purple': item.name === 'Metropolitan',
-          'northern-black': item.name === 'Northern',
-          'piccadilly-blue': item.name === 'Piccadilly',
-          'victoria-blue': item.name === 'Victoria',
-          'waterlooCity-blue': item.name === 'Waterloo & City',
+          'bakerloo-brown': item.id === 'bakerloo',
+          'central-red': item.id === 'central',
+          'circle-yellow': item.id === 'circle',
+          'district-green': item.id === 'district',
+          'hammerSmithCity-purple': item.id === 'hammersmith-city',
+          'jubilee-silver': item.id === 'jubilee',
+          'metropolitan-purple': item.id === 'metropolitan',
+          'northern-black': item.id === 'northern',
+          'piccadilly-blue': item.id === 'piccadilly',
+          'victoria-blue': item.id === 'victoria',
+          'waterlooCity-blue': item.id === 'waterloo-city',
           'TFL-rail-blue': item.name === 'TfL Rail',
-          'DLR-blue': item.name === 'DLR',
-          'LondonOverground-orange': item.name === 'London Overground'
+          'DLR-blue': item.id === 'dlr',
+          'LondonOverground-orange': item.id === 'london-overground',
+          'elizabeth-purple': item.id === 'elizabeth'
         }"
         >{{ item.lineStatuses[0].reason | firstWord }}:</span
       >

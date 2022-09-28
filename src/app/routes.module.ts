@@ -16,82 +16,87 @@ import { WaterlooCityComponent } from "./components/waterloo-city/waterloo-city.
 import { MetropolitanComponent } from "./components/metropolitan/metropolitan.component";
 import { HammersmithCityComponent } from "./components/hammersmith-city/hammersmith-city.component";
 import { TflRailComponent } from "./components/tfl-rail/tfl-rail.component";
+import { ElizabethComponent } from "./components/elizabeth/elizabeth.component";
 
 const routes: Routes = [
   {
     path: "",
     redirectTo: "home",
-    pathMatch: "full"
+    pathMatch: "full",
   },
   {
     path: "home",
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: "bakerloo",
-    component: BakerlooComponent
+    component: BakerlooComponent,
   },
   {
     path: "circle",
-    component: CircleComponent
+    component: CircleComponent,
   },
   {
     path: "central",
-    component: CentralComponent
+    component: CentralComponent,
   },
   {
     path: "district",
-    component: DistrictComponent
+    component: DistrictComponent,
   },
   {
     path: "piccadilly",
-    component: PiccadillyComponent
+    component: PiccadillyComponent,
   },
   {
     path: "jubilee",
-    component: JubileeComponent
+    component: JubileeComponent,
   },
   {
     path: "victoria",
-    component: VictoriaComponent
+    component: VictoriaComponent,
   },
   {
     path: "northern",
-    component: NorthernComponent
+    component: NorthernComponent,
   },
   {
     path: "dlr",
-    component: DlrComponent
+    component: DlrComponent,
   },
   {
     path: "london-overground",
-    component: LondonOvergroundComponent
+    component: LondonOvergroundComponent,
   },
   {
     path: "waterloo-city",
-    component: WaterlooCityComponent
+    component: WaterlooCityComponent,
   },
   {
     path: "hammersmith-city",
-    component: HammersmithCityComponent
+    component: HammersmithCityComponent,
   },
   {
     path: "metropolitan",
-    component: MetropolitanComponent
+    component: MetropolitanComponent,
   },
   {
     path: "tfl-rail",
-    component: TflRailComponent
+    component: TflRailComponent,
+  },
+  {
+    path: "elizabeth",
+    component: ElizabethComponent,
   },
   {
     path: "**",
-    component: NotFoundPageComponent
-  }
+    component: NotFoundPageComponent,
+  },
 ];
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class RoutesModule {}

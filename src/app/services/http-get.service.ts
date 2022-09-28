@@ -3,14 +3,14 @@ import { HttpClient } from "@angular/common/http";
 import { retry } from "rxjs/operators";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class HttpGetService {
   constructor(private httpGet$: HttpClient) {}
 
   getTFLLineService() {
     const tflLineStatus =
-      "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status";
+      "https://api.tfl.gov.uk/line/mode/tube,overground,dlr/status";
     return this.httpGet$.get(tflLineStatus).pipe(retry(5));
   }
 
@@ -74,13 +74,18 @@ export class HttpGetService {
     return this.httpGet$.get(lineUrl).pipe(retry(5));
   }
 
-  getHammersmithCityLine(){
+  getHammersmithCityLine() {
     const lineUrl = "https://api.tfl.gov.uk/line/hammersmith-city/arrivals";
     return this.httpGet$.get(lineUrl).pipe(retry(5));
   }
 
-  getTflRailLine(){
+  getTflRailLine() {
     const lineUrl = "https://api.tfl.gov.uk/line/tfl-rail/arrivals";
+    return this.httpGet$.get(lineUrl).pipe(retry(5));
+  }
+
+  getElizabethLine() {
+    const lineUrl = "https://api.tfl.gov.uk/line/elizabeth/arrivals";
     return this.httpGet$.get(lineUrl).pipe(retry(5));
   }
 }

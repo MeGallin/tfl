@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync as  } from '@angular/core/testing';
 
 import { TflRailComponent } from './tfl-rail.component';
 
@@ -6,7 +6,7 @@ describe('TflRailComponent', () => {
   let component: TflRailComponent;
   let fixture: ComponentFixture<TflRailComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TflRailComponent ]
     })

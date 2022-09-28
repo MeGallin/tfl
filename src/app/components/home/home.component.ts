@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
       .pipe(switchMap(() => this.httpGet$.getTFLLineService()))
       .subscribe((res) => {
         this.tubeData = res;
-
+        console.log(this.tubeData);
         for (let i = 0; i < this.tubeData.length; i++) {
           let service =
             this.tubeData[i].lineStatuses[0].statusSeverityDescription;

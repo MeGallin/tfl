@@ -1,0 +1,83 @@
+<section id="elizabeth-line">
+  <app-home></app-home>
+  <div class="flex-container">
+    <div><h3>Elizabeth Line Arrivals</h3></div>
+    <div>
+      <mat-form-field>
+        <input
+          matInput=""
+          type="text"
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Filter"
+          #input
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="stationName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Station</th>
+      <td mat-cell *matCellDef="let item">{{ item.stationName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="platformName">
+      <th mat-header-cell *matHeaderCellDef>Platform</th>
+      <td mat-cell *matCellDef="let item">{{ item.platformName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="destinationName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Destination</th>
+      <td
+        mat-cell
+        *matCellDef="let item"
+        [ngClass]="{
+          'h-s-text':
+            item.destinationName ===
+            'Hammersmith (H&C Line) Underground Station'
+        }"
+      >
+        {{ item.destinationName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="timeToStation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Time to Station [Minutes]
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let item"
+        [ngClass]="{ 'one-min-away': [item.timeToStation / 60] <= 1 }"
+      >
+        {{ item.timeToStation / 60 | number: "0.0-0" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="currentLocation">
+      <th mat-header-cell *matHeaderCellDef>Current Location</th>
+      <td
+        mat-cell
+        *matCellDef="let item"
+        [ngClass]="{ 'one-min-away': [item.timeToStation / 60] <= 1 }"
+      >
+        {{ item.currentLocation }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expectedArrival">
+      <th mat-header-cell *matHeaderCellDef>Expected</th>
+      <td mat-cell *matCellDef="let item">
+        {{ item.expectedArrival | date: "shortTime" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[20, 30, 40]"
+    showFirstLastButtons
+  ></mat-paginator>
+</section>

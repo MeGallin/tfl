@@ -1,15 +1,14 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'firstWord'
+  name: "firstWord",
 })
 export class FirstWordPipe implements PipeTransform {
   transform(value: any, args?: any): any {
-    console.log('FFFFFF', value);
     if (!value) {
-      return '';
+      return "";
     } else {
-      return value.split(':')[0];
+      return value.split(":")[0];
     }
   }
 }

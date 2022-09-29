@@ -1,19 +1,21 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { MatSortModule } from "@angular/material/sort";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatInputModule } from "@angular/material/input";
 
 @Component({
-  selector: 'app-district',
-  templateUrl: './district.component.html',
-  styleUrls: ['./district.component.css']
+  selector: "app-district",
+  templateUrl: "./district.component.html",
+  styleUrls: ["./district.component.css"],
 })
 export class DistrictComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatInputModule) input: MatInputModule;
+  @ViewChild(MatPaginatorModule) paginator: MatPaginatorModule;
+  @ViewChild(MatSortModule) sort: MatSortModule;
 
   timer$;
   districtData: any = [];
@@ -26,9 +28,9 @@ export class DistrictComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
-  dataSource: any = new MatTableDataSource();
+  dataSource: any = new MatTableModule();
   constructor(private httpDistrictLineService$: HttpGetService) {}
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class DistrictComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpDistrictLineService$.getDistrictLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.districtData = res;
         console.log(this.districtData);
@@ -46,5 +48,4 @@ export class DistrictComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

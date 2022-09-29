@@ -1,19 +1,21 @@
-import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { MatSortModule } from "@angular/material/sort";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatInputModule } from "@angular/material/input";
 
 @Component({
-  selector: 'app-central',
-  templateUrl: './central.component.html',
-  styleUrls: ['./central.component.css']
+  selector: "app-central",
+  templateUrl: "./central.component.html",
+  styleUrls: ["./central.component.css"],
 })
 export class CentralComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatInputModule) input: MatInputModule;
+  @ViewChild(MatPaginatorModule) paginator: MatPaginatorModule;
+  @ViewChild(MatSortModule) sort: MatSortModule;
 
   timer$;
   centralData: any = [];
@@ -26,9 +28,9 @@ export class CentralComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
-  dataSource: any = new MatTableDataSource();
+  dataSource: any = new MatTableModule();
   constructor(private httpCentralLineService$: HttpGetService) {}
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class CentralComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpCentralLineService$.getCentralLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.centralData = res;
         console.log(this.centralData);

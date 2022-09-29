@@ -1,19 +1,21 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { MatSortModule } from "@angular/material/sort";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatInputModule } from "@angular/material/input";
 
 @Component({
-  selector: 'app-london-overground',
-  templateUrl: './london-overground.component.html',
-  styleUrls: ['./london-overground.component.css']
+  selector: "app-london-overground",
+  templateUrl: "./london-overground.component.html",
+  styleUrls: ["./london-overground.component.css"],
 })
 export class LondonOvergroundComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatInputModule) input: MatInputModule;
+  @ViewChild(MatPaginatorModule) paginator: MatPaginatorModule;
+  @ViewChild(MatSortModule) sort: MatSortModule;
 
   timer$;
   londonOvergroundData: any = [];
@@ -26,9 +28,9 @@ export class LondonOvergroundComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
-  dataSource: any = new MatTableDataSource();
+  dataSource: any = new MatTableModule();
   constructor(private httpLondonOvergroundLineService$: HttpGetService) {}
 
   ngOnInit() {
@@ -36,8 +38,12 @@ export class LondonOvergroundComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
     this.timer$ = timer(1000, 60000)
-      .pipe(switchMap(() => this.httpLondonOvergroundLineService$.getLondonOvergroundLine()))
-      .subscribe(res => {
+      .pipe(
+        switchMap(() =>
+          this.httpLondonOvergroundLineService$.getLondonOvergroundLine()
+        )
+      )
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.londonOvergroundData = res;
         console.log(this.londonOvergroundData);

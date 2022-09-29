@@ -1,18 +1,21 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { MatSortModule } from "@angular/material/sort";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatInputModule } from "@angular/material/input";
 
 @Component({
-  selector: 'app-metropolitan',
-  templateUrl: './metropolitan.component.html',
-  styleUrls: ['./metropolitan.component.css']
+  selector: "app-metropolitan",
+  templateUrl: "./metropolitan.component.html",
+  styleUrls: ["./metropolitan.component.css"],
 })
 export class MetropolitanComponent implements OnInit {
-  @ViewChild("input") input: ElementRef;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatInputModule) input: MatInputModule;
+  @ViewChild(MatPaginatorModule) paginator: MatPaginatorModule;
+  @ViewChild(MatSortModule) sort: MatSortModule;
 
   timer$;
   metropolitanData: any = [];
@@ -25,9 +28,9 @@ export class MetropolitanComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
-  dataSource: any = new MatTableDataSource();
+  dataSource: any = new MatTableModule();
   constructor(private httpMetropolitanLineService$: HttpGetService) {}
 
   ngOnInit() {
@@ -35,8 +38,10 @@ export class MetropolitanComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
     this.timer$ = timer(1000, 60000)
-      .pipe(switchMap(() => this.httpMetropolitanLineService$.getMetropolitanLine()))
-      .subscribe(res => {
+      .pipe(
+        switchMap(() => this.httpMetropolitanLineService$.getMetropolitanLine())
+      )
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.metropolitanData = res;
         console.log(this.metropolitanData);
@@ -45,5 +50,4 @@ export class MetropolitanComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

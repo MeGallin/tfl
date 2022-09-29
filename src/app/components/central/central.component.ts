@@ -1,17 +1,16 @@
-import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 
 @Component({
-  selector: 'app-central',
-  templateUrl: './central.component.html',
-  styleUrls: ['./central.component.css']
+  selector: "app-central",
+  templateUrl: "./central.component.html",
+  styleUrls: ["./central.component.css"],
 })
 export class CentralComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -26,7 +25,7 @@ export class CentralComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
   dataSource: any = new MatTableDataSource();
   constructor(private httpCentralLineService$: HttpGetService) {}
@@ -37,7 +36,7 @@ export class CentralComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpCentralLineService$.getCentralLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.centralData = res;
         console.log(this.centralData);

@@ -1,17 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 
 @Component({
-  selector: 'app-district',
-  templateUrl: './district.component.html',
-  styleUrls: ['./district.component.css']
+  selector: "app-district",
+  templateUrl: "./district.component.html",
+  styleUrls: ["./district.component.css"],
 })
 export class DistrictComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -26,7 +25,7 @@ export class DistrictComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
   dataSource: any = new MatTableDataSource();
   constructor(private httpDistrictLineService$: HttpGetService) {}
@@ -37,7 +36,7 @@ export class DistrictComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpDistrictLineService$.getDistrictLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.districtData = res;
         console.log(this.districtData);
@@ -46,5 +45,4 @@ export class DistrictComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

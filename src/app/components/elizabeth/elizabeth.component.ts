@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
@@ -10,7 +10,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
   styleUrls: ["./elizabeth.component.css"],
 })
 export class ElizabethComponent implements OnInit {
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 

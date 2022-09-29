@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 
 @Component({
-  selector: 'app-bakerloo',
-  templateUrl: './bakerloo.component.html',
-  styleUrls: ['./bakerloo.component.css']
+  selector: "app-bakerloo",
+  templateUrl: "./bakerloo.component.html",
+  styleUrls: ["./bakerloo.component.css"],
 })
 export class BakerlooComponent implements OnInit {
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -25,7 +25,7 @@ export class BakerlooComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
   dataSource: any = new MatTableDataSource();
   constructor(private httpCircleLineService$: HttpGetService) {}
@@ -36,7 +36,7 @@ export class BakerlooComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpCircleLineService$.getBakerlooLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.bakerlooData = res;
         console.log(this.bakerlooData);
@@ -45,5 +45,4 @@ export class BakerlooComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

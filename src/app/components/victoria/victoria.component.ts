@@ -1,17 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 
 @Component({
-  selector: 'app-victoria',
-  templateUrl: './victoria.component.html',
-  styleUrls: ['./victoria.component.css']
+  selector: "app-victoria",
+  templateUrl: "./victoria.component.html",
+  styleUrls: ["./victoria.component.css"],
 })
 export class VictoriaComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -26,7 +25,7 @@ export class VictoriaComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
   dataSource: any = new MatTableDataSource();
   constructor(private httpVictoriaLineService$: HttpGetService) {}
@@ -37,7 +36,7 @@ export class VictoriaComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpVictoriaLineService$.getVictoriaLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.victoriaData = res;
         console.log(this.victoriaData);
@@ -46,5 +45,4 @@ export class VictoriaComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

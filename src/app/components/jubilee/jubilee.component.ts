@@ -1,17 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 
 @Component({
-  selector: 'app-jubilee',
-  templateUrl: './jubilee.component.html',
-  styleUrls: ['./jubilee.component.css']
+  selector: "app-jubilee",
+  templateUrl: "./jubilee.component.html",
+  styleUrls: ["./jubilee.component.css"],
 })
 export class JubileeComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -26,7 +25,7 @@ export class JubileeComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
   dataSource: any = new MatTableDataSource();
   constructor(private httpJubileeLineService$: HttpGetService) {}
@@ -37,7 +36,7 @@ export class JubileeComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpJubileeLineService$.getJubileeLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.jubileeData = res;
         console.log(this.jubileeData);
@@ -46,5 +45,4 @@ export class JubileeComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

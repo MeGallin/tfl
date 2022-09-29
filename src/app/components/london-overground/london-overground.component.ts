@@ -1,17 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 
 @Component({
-  selector: 'app-london-overground',
-  templateUrl: './london-overground.component.html',
-  styleUrls: ['./london-overground.component.css']
+  selector: "app-london-overground",
+  templateUrl: "./london-overground.component.html",
+  styleUrls: ["./london-overground.component.css"],
 })
 export class LondonOvergroundComponent implements OnInit {
-
-  @ViewChild("input") input: ElementRef;
+  @ViewChild("input") input: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -26,7 +25,7 @@ export class LondonOvergroundComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
   dataSource: any = new MatTableDataSource();
   constructor(private httpLondonOvergroundLineService$: HttpGetService) {}
@@ -36,8 +35,12 @@ export class LondonOvergroundComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
     this.timer$ = timer(1000, 60000)
-      .pipe(switchMap(() => this.httpLondonOvergroundLineService$.getLondonOvergroundLine()))
-      .subscribe(res => {
+      .pipe(
+        switchMap(() =>
+          this.httpLondonOvergroundLineService$.getLondonOvergroundLine()
+        )
+      )
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.londonOvergroundData = res;
         console.log(this.londonOvergroundData);

@@ -1,18 +1,21 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpGetService } from "src/app/services/http-get.service";
 import { timer } from "rxjs";
 import { switchMap } from "rxjs/operators";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { MatSortModule } from "@angular/material/sort";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatInputModule } from "@angular/material/input";
 
 @Component({
-  selector: 'app-bakerloo',
-  templateUrl: './bakerloo.component.html',
-  styleUrls: ['./bakerloo.component.css']
+  selector: "app-bakerloo",
+  templateUrl: "./bakerloo.component.html",
+  styleUrls: ["./bakerloo.component.css"],
 })
 export class BakerlooComponent implements OnInit {
-  @ViewChild("input") input: ElementRef;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatInputModule) input: MatInputModule;
+  @ViewChild(MatPaginatorModule) paginator: MatPaginatorModule;
+  @ViewChild(MatSortModule) sort: MatSortModule;
 
   timer$;
   bakerlooData: any = [];
@@ -25,9 +28,9 @@ export class BakerlooComponent implements OnInit {
     "destinationName",
     "timeToStation",
     "currentLocation",
-    "expectedArrival"
+    "expectedArrival",
   ];
-  dataSource: any = new MatTableDataSource();
+  dataSource: any = new MatTableModule();
   constructor(private httpCircleLineService$: HttpGetService) {}
 
   ngOnInit() {
@@ -36,14 +39,13 @@ export class BakerlooComponent implements OnInit {
 
     this.timer$ = timer(1000, 60000)
       .pipe(switchMap(() => this.httpCircleLineService$.getBakerlooLine()))
-      .subscribe(res => {
+      .subscribe((res) => {
         this.dataSource.data = res;
         this.bakerlooData = res;
-        console.log(this.bakerlooData);
+        console.log("BBBBBB", this.bakerlooData);
       });
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }
